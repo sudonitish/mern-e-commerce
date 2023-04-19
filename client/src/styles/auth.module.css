@@ -1,0 +1,113 @@
+
+body {
+    background-color: #f7f7f7;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Set form styles */
+.authForm {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.authText {
+    font-size: 36px;
+    color: #333;
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.authInputLabel {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+
+.authInput{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+}
+
+.authError {
+    color: #e74c3c;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.authButton {
+    background-color: #fff;
+    color: #1abc9c;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-right: 10px;
+    border: 1px solid #1abc9c;
+    width: 40%;
+}
+
+.authButton:hover {
+    background-color: #1abc9c;
+    color: #fff;
+}
+
+
+.forgotLink {
+
+    color: #3498db;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.forgotContainer {
+    margin: 20px 0 0 0;
+}
+.linkSuccessSend {
+    background-color: #02530e;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    animation-name: show-error;
+    animation-duration: 5s;
+  }
+  
+  @keyframes show-error {
+    0% {
+      transform: translateY(-100%);
+    }
+    30% {
+      transform: translateY(0);
+    }
+    70% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  

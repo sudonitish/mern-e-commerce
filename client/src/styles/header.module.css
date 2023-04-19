@@ -1,0 +1,42 @@
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    position: relative;
+    min-width: 600px;
+  }
+  
+  .header__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .header__nav_item {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .header__nav_item:hover {
+    color: #f44336;
+  }
+  
+  .header__nav_item_logout {
+    background-color: #f44336;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+  }

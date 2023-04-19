@@ -1,0 +1,140 @@
+/* Popup container */
+.productModalContainer {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content */
+.productModal {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 1000px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  animation-name: modal-anim;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes modal-anim {
+  from {opacity: 0; transform: scale(0.8)}
+  to {opacity: 1; transform: scale(1)}
+}
+
+/* Close button */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #aaa;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+/* Product images */
+.picturesContainer {
+  flex: 1;
+  max-width: 50%;
+  margin-right: 20px;
+}
+
+.sliderSlick {
+  margin: 0;
+  padding: 0;
+}
+
+.productImages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImages img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Product details */
+.productDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.productDetails h2 {
+  font-size: 28px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.productDetails h3 {
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.productDetails p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.productPrice {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.productPrice:hover,.productDetails h3:hover,.productDetails h2:hover,.productDetails p:hover {
+  color: #f48fb1;
+}
+.productDetails button {
+  background-color: #f48fb1;
+  border: none;
+  border-radius: 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.productDetails button:hover {
+  background-color: #ba68c8;
+  transform: scale(1.1);
+}
