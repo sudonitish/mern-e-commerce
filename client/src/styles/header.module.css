@@ -1,4 +1,7 @@
 /* Header Styles */
+body{
+  min-width: 800px;
+}
 .header {
     display: flex;
     justify-content: space-between;

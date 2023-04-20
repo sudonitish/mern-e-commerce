@@ -91,11 +91,27 @@ async function Decrease(id) {
         console.log(error)
     }
 }
+async function MyOrdersInDetails(){
+    try {
+        const response = await fetch(`${url}/showMyOrdersInDetails`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        return response.json()
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
 export {
     Products,
     MyCart,
     AddToCart,
     MyCartInDetails,
     Increase,
-    Decrease
+    Decrease,
+    MyOrdersInDetails
 }

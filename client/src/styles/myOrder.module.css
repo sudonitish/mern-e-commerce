@@ -1,0 +1,130 @@
+.myCartItemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    overflow: hidden;
+    width: 50rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    
+}
+
+.productImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+}
+
+.productImage {
+    height: 150px;
+    object-fit: contain;
+    transition: all 0.3s ease-in-out;
+}
+
+.productImage:hover {
+    transform: scale(1.1);
+}
+
+.productDetailsInCard {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s ease-in-out;
+}
+
+.productDetailsTypeInCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 320px;
+}
+
+.productTitle {
+    margin: 20px 0 0 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.productTitle:hover {
+    color: #f48fb1;
+    margin: 10px 0 0 0;
+}
+
+.productBrand {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 10px 0 0 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.productBrand:hover {
+    color: #f48fb1;
+}
+
+.productPriceAndQty {
+    display: block;
+    margin: 40px 0 0 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.productPriceAndQty:hover {
+    color: #f48fb1;
+}
+
+.qtyPriceValue {
+    padding: 10px;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.confirmed {
+    color: #3ae949;
+}
+
+.rejected {
+    color: #e93a43;
+
+}
+
+.pending {
+    color: #3a54e9;
+
+}
+
+.delivered {
+    color: #e93ae0;
+}
+
+.status:hover {
+    color: #f48fb1;
+    margin: 10px 0 0 0;
+}

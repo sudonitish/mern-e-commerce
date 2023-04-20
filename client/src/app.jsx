@@ -7,6 +7,7 @@ import Server from './components/partials/serverError';
 import Forgot from './components/authentication/forgot';
 import Home from "./components/consumer/home";
 import Cart from "./components/consumer/myCart";
+import Orders from "./components/consumer/myOrders";
 import AddProducts from "./components/admin/addProducts";
 import ShowProducts from "./components/admin/showProducts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Login />} />
         <Route path="/myCart" element={<Cart />} />
+        <Route path="/myOrders" element={<Orders />} />
         <Route path="/addProducts" element={<AddProducts />} />
         <Route path="/showProducts" element={<ShowProducts />} />
         <Route path="/resetPassword" element={<ResetPassword />} />

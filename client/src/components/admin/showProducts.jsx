@@ -26,8 +26,10 @@ export default function ShowProducts() {
         setProductOnScreen(data);
     }
     async function deleteProduct(id) {
+        
         const response = await SendDeleteRequestForProduct(id);
         if (response.deleted) {
+            
             loadProducts();
         }
     }

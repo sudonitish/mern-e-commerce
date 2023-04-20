@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 
 dotenv.config();
 const Razorpay = require('razorpay');
-const { userModel, cartModel, productModel } = require('../database/schemas')
+const { userModel, cartModel, productModel, orderHistoryModel } = require('../database/schemas')
 const {
     addToCart,
     incrementCart,
@@ -19,7 +19,7 @@ const razorpay = new Razorpay({
     key_secret: process.env.key_secret,
 });
 module.exports = {
-    getProducts:(req, res) => {
+    getProducts: (req, res) => {
 
         const { productNo } = req.params;
 
@@ -34,7 +34,7 @@ module.exports = {
             })
 
     },
-    myCart:(req, res) => {
+    myCart: (req, res) => {
         if (req.session.is_logged_in === true) {
             cartModel.find({ username: req.session.user_name })
                 .then((data) => {
@@ -48,7 +48,7 @@ module.exports = {
             res.send({ usersBag: [] })
         }
     },
-    myCartInDetails:(req, res) => {
+    myCartInDetails: (req, res) => {
         if (req.session.is_logged_in === true) {
             cartModel.find({ username: req.session.user_name })
                 .then(async (data) => {
@@ -79,7 +79,7 @@ module.exports = {
             res.send({ usersBag: [] })
         }
     },
-    addToCart:(req, res) => {
+    addToCart: (req, res) => {
 
         if (req.session.is_logged_in === true) {
 
@@ -130,19 +130,19 @@ module.exports = {
 
         }
     },
-    increase:(req, res) => {
+    increase: (req, res) => {
         incrementCart({ username: req.session.user_name, id: req.query.id }, (err, quantity) => {
             if (!err)
                 res.send({ quantity: quantity })
         })
     },
-    decrease:(req, res) => {
+    decrease: (req, res) => {
         decrementCart({ username: req.session.user_name, id: req.query.id }, (err, quantity) => {
             if (!err)
                 res.send({ quantity: quantity })
         })
     },
-    placeOrderAndPay:(req, res) => {
+    placeOrderAndPay: (req, res) => {
 
         if (req.session.is_logged_in === true) {
             let amount = 0;
@@ -178,7 +178,7 @@ module.exports = {
             res.status(401).send({ error: 'Not authorized' })
         }
     },
-    confirmOrder:(req, res) => {
+    confirmOrder: (req, res) => {
 
         if (req.session.is_logged_in === true) {
 
@@ -196,5 +196,36 @@ module.exports = {
             })
         }
 
-    }
+    },
+    showMyOrdersInDetails: (req, res) => {
+        if (req.session.is_logged_in === true) {
+            orderHistoryModel.find({ username: req.session.user_name })
+                .then(async (data) => {
+                    let products = [];
+                    await Promise.all(data[0].products.map(async (item) => {
+                        const product = await productModel.findById({ _id: item.producID });
+                        // product.quantity = item.quantity
+                        // await product.save();
+                        products.push({
+                            _id: product._id,
+                            title: product.title,
+                            description: product.description,
+                            price: product.price,
+                            stock: product.stock,
+                            brand: product.brand,
+                            quantity: item.quantity,
+                            status:item.status,
+                            images: product.images,
+                        });
+                    }));
+                    res.send(products);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+        else {
+            res.send({ products: [] })
+        }
+    },
 }

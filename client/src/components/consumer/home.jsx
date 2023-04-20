@@ -14,9 +14,6 @@ export default function Home() {
     const [loading, setLoading] = useState([]);
 
     const navigate = useNavigate();
-
-
-
     async function loadProducts() {
         const data = await Products(productNo)
         setProductNo(productNo + 5)
@@ -107,7 +104,7 @@ export default function Home() {
                     }} />}
             </div >
             <div className={homeStyles.loadMoreButtonContainer}>
-                <button className={homeStyles.loadMore}>load more...</button>
+                <button className={homeStyles.loadMore} onClick={loadProducts}>load more...</button>
             </div>
         </>
     )

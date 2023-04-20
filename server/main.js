@@ -9,7 +9,7 @@ const port = process.env.PORT
 const init = require('./database/init')
 const bodyParser=require('body-parser')
 const { authenticate,destroySession, logout, resetPasswordLink, verifyToReset, resetPage, resetPassword, resetPasswordOnProfile, verifyToRegister, logMeIn, registerUser } = require('./controllers/userControllers');
-const { placeOrderAndPay, decrease,addToCart, increase, myCartInDetails, myCart, getProducts,confirmOrder } = require('./controllers/consumerControllers');
+const { placeOrderAndPay, decrease,addToCart, increase, myCartInDetails, myCart, getProducts,confirmOrder,showMyOrdersInDetails } = require('./controllers/consumerControllers');
 const { getProductsForAdmin, addNewProduct, updateProduct, deleteProduct } = require('./controllers/adminControllers');
 
 app.use(cors({
@@ -106,7 +106,8 @@ app.route('/placeOrderAndPay')
     .get(placeOrderAndPay)
 app.route('/confirmOrder')
     .post(confirmOrder)
-
+app.route('/showMyOrdersInDetails')
+   .get(showMyOrdersInDetails)
 
 //admin routes
 app.route('/getProductsForAdmin')

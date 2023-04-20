@@ -60,7 +60,7 @@ module.exports = {
     deleteProduct: (req, res) => {
         const { id } = req.params;
         if (req.session.is_Admin && req.session.is_logged_in) {
-            deleteProduct(req.query.id, (err) => {
+            deleteProduct(id, (err) => {
                 if (!err)
                     res.send({ deleted: true })
                 else

@@ -101,7 +101,7 @@ export default function Cart() {
                 const result = await axios.post(url + '/confirmOrder', data, { withCredentials: true });
                 console.log(result.data);
                 if (!result.data.error) {
-                    navigate('/')
+                    navigate('/myOrders')
                 }
                 else {
                     alert('server error');

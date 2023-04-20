@@ -36,7 +36,7 @@ export default function Login() {
     }
     async function isUserAuthenticated() {
         const data = await CheckForAuthentication();
-        console.log(data)
+   
         if (data.linkSend) {
            
             setLinkSuccessSend({

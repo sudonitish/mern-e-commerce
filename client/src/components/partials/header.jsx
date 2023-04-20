@@ -39,8 +39,12 @@ export default function Header() {
                                 <div className={styles.header__username}>{userDetails.username}</div>
                                 {
                                     !userDetails.isAdmin ?
-                                        <button className={styles.header__nav_item} onClick={()=>{navigate('/myCart')}}>My Cart</button> :
-                                        null
+                                    <>
+                                    <button className={styles.header__nav_item} onClick={()=>{navigate('/myCart')}}>My Cart</button>
+                                    <button className={styles.header__nav_item} onClick={()=>{navigate('/myOrders')}}>My Orders</button>
+                                    </>
+                                    :
+                                    null
                                 }
                                 <button className={styles.header__nav_item} onClick={()=>{navigate('/resetPassword')}}>Reset Password</button>
                                 <button className={`${styles.header__nav_item} ${styles.header__nav_item_logout}`} onClick={logMeOut}>Logout</button>
